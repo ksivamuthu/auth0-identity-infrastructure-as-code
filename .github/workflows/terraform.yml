@@ -34,7 +34,7 @@ jobs:
       run: terraform fmt -check
 
   terraform-dev:
-    name: 'Terraform Plan & Apply - Dev'
+    name: 'Terraform Apply - Dev'
     runs-on: ubuntu-latest
     needs: terraform
     environment:
@@ -70,7 +70,7 @@ jobs:
       run: terraform apply -auto-approve
 
   terraform-staging:
-    name: 'Terraform Plan & Apply - Staging'
+    name: 'Terraform Apply - Staging'
     runs-on: ubuntu-latest
     needs: terraform-dev
     environment:
@@ -106,7 +106,7 @@ jobs:
       run: terraform apply -auto-approve
 
   terraform-prod:
-    name: 'Terraform Plan & Apply - Prod'
+    name: 'Terraform Apply - Prod'
     runs-on: ubuntu-latest
     needs: terraform-staging
     environment:
