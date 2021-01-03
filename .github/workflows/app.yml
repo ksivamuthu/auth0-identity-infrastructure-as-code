@@ -16,6 +16,7 @@ defaults:
 jobs:
 
   build:
+    name: 'Build'
     env: 
       REACT_APP_AUTH_CONFIG_DOMAIN: ${{ secrets.AUTH0_DOMAIN_DEV }}
       REACT_APP_AUTH_CONFIG_CLIENTID: ${{ secrets.AUTH0_CLIENTID_DEV }}
@@ -36,7 +37,29 @@ jobs:
     - run: npm run test
       env:
         CI: true
-        
+
+  dev:
+    name: 'Deploy Dev'
+    needs: build
+    environment:
+      name: dev
+    runs-on: ubuntu-latest
+    env: 
+      REACT_APP_AUTH_CONFIG_DOMAIN: ${{ secrets.AUTH0_DOMAIN_DEV }}
+      REACT_APP_AUTH_CONFIG_CLIENTID: ${{ secrets.AUTH0_CLIENTID_DEV }}
+      REACT_APP_AUTH_CONFIG_AUDIENCE: ${{ secrets.AUTH0_AUDIENCE_DEV }}
+      REACT_APP_API_ORIGIN: ${{ secrets.API_ORIGIN_DEV }}
+
+    steps:
+    - uses: actions/checkout@v2
+    
+    - name: Use Node.js 12.0
+      uses: actions/setup-node@v1
+      with:
+        node-version: 12.0
+
+    - run: npm install
+    - run: npm run build --if-present
     - uses: azure/login@v1
       with:
         creds: ${{ secrets.AZURE_CREDENTIALS_DEV }}
@@ -45,8 +68,65 @@ jobs:
       uses: azure/webapps-deploy@v2
       with:
         app-name: auth0appdemo-dev-app
-        package: ./frontend-app/build
-      env:
-        CI: true
 
+  staging:
+    name: 'Deploy Staging'
+    needs: dev
+    environment:
+      name: staging
+    runs-on: ubuntu-latest
+    env: 
+      REACT_APP_AUTH_CONFIG_DOMAIN: ${{ secrets.AUTH0_DOMAIN_STAGING }}
+      REACT_APP_AUTH_CONFIG_CLIENTID: ${{ secrets.AUTH0_CLIENTID_STAGING }}
+      REACT_APP_AUTH_CONFIG_AUDIENCE: ${{ secrets.AUTH0_AUDIENCE_STAGING }}
+      REACT_APP_API_ORIGIN: ${{ secrets.API_ORIGIN_STAGING }}
 
+    steps:
+    - uses: actions/checkout@v2
+    
+    - name: Use Node.js 12.0
+      uses: actions/setup-node@v1
+      with:
+        node-version: 12.0
+
+    - run: npm install
+    - run: npm run build --if-present
+    - uses: azure/login@v1
+      with:
+        creds: ${{ secrets.AZURE_CREDENTIALS_STAGING }}
+    
+    - name: 'Deploy'
+      uses: azure/webapps-deploy@v2
+      with:
+        app-name: auth0appdemo-staging-app
+
+  prod:
+    name: 'Deploy Prod'
+    needs: staging
+    environment:
+      name: prod
+    runs-on: ubuntu-latest
+    env: 
+      REACT_APP_AUTH_CONFIG_DOMAIN: ${{ secrets.AUTH0_DOMAIN_PROD }}
+      REACT_APP_AUTH_CONFIG_CLIENTID: ${{ secrets.AUTH0_CLIENTID_PROD }}
+      REACT_APP_AUTH_CONFIG_AUDIENCE: ${{ secrets.AUTH0_AUDIENCE_PROD }}
+      REACT_APP_API_ORIGIN: ${{ secrets.API_ORIGIN_PROD }}
+
+    steps:
+    - uses: actions/checkout@v2
+    
+    - name: Use Node.js 12.0
+      uses: actions/setup-node@v1
+      with:
+        node-version: 12.0
+
+    - run: npm install
+    - run: npm run build --if-present
+    - uses: azure/login@v1
+      with:
+        creds: ${{ secrets.AZURE_CREDENTIALS_PROD}}
+    
+    - name: 'Deploy'
+      uses: azure/webapps-deploy@v2
+      with:
+        app-name: auth0appdemo-prod-app        
