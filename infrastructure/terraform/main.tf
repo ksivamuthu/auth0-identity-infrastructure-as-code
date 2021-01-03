@@ -3,7 +3,7 @@ terraform {
     organization = "Identity-Infra-As-Code-Demo"
 
     workspaces {
-      name = "demo-workspace"
+      prefix = "auth0-demo-workspace-"
     }
   }
 }
