@@ -1,0 +1,14 @@
+{
+  "name": "auth0-deploy",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "auth0-deploy-cli": "^6.0.0"
+  }
+}

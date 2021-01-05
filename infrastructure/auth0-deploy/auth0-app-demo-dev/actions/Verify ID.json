@@ -1,0 +1,11 @@
+{
+  "name": "Verify ID",
+  "supported_triggers": [
+    {
+      "id": "post-login",
+      "version": "v1"
+    }
+  ],
+  "current_version": {},
+  "bindings": []
+}

@@ -1,0 +1,19 @@
+{
+  "enabled_locales": [
+    "en"
+  ],
+  "flags": {
+    "allow_legacy_delegation_grant_types": true,
+    "allow_legacy_ro_grant_types": true,
+    "allow_legacy_tokeninfo_endpoint": true,
+    "allow_other_legacy_grant_types": true,
+    "enable_apis_section": true,
+    "enable_idtoken_api2": true,
+    "enable_legacy_profile": true,
+    "enable_public_signup_user_exists_error": true,
+    "dashboard_ui_next": true,
+    "disable_clickjack_protection_headers": true,
+    "include_email_in_reset_pwd_redirect": true,
+    "include_email_in_verify_email_redirect": true
+  }
+}

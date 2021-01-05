@@ -1,0 +1,20 @@
+{
+  "options": {
+    "mfa": {
+      "active": true,
+      "return_enroll_settings": true
+    },
+    "brute_force_protection": true
+  },
+  "strategy": "auth0",
+  "name": "Username-Password-Authentication",
+  "is_domain_connection": false,
+  "realms": [
+    "Username-Password-Authentication"
+  ],
+  "enabled_clients": [
+    "API Explorer Application",
+    "auth0-deploy-cli-extension",
+    "auth0appdemo-dev-app"
+  ]
+}

@@ -1,0 +1,43 @@
+{
+  "is_token_endpoint_ip_header_trusted": false,
+  "name": "auth0appdemo-dev-app",
+  "description": "auth0appdemo-dev-app - Terraform generated",
+  "oidc_conformant": true,
+  "callbacks": [
+    "https://auth0appdemo-dev-app.azurewebsites.net"
+  ],
+  "allowed_logout_urls": [
+    "https://auth0appdemo-dev-app.azurewebsites.net"
+  ],
+  "sso": true,
+  "is_first_party": true,
+  "sso_disabled": false,
+  "cross_origin_auth": false,
+  "refresh_token": {
+    "expiration_type": "expiring",
+    "leeway": 0,
+    "token_lifetime": 2592000,
+    "idle_token_lifetime": 1296000,
+    "infinite_token_lifetime": false,
+    "infinite_idle_token_lifetime": false,
+    "rotation_type": "rotating"
+  },
+  "allowed_origins": [
+    "https://auth0appdemo-dev-app.azurewebsites.net"
+  ],
+  "jwt_configuration": {
+    "alg": "RS256",
+    "secret_encoded": false
+  },
+  "token_endpoint_auth_method": "none",
+  "app_type": "spa",
+  "grant_types": [
+    "authorization_code",
+    "implicit",
+    "refresh_token"
+  ],
+  "web_origins": [
+    "https://auth0appdemo-dev-app.azurewebsites.net"
+  ],
+  "custom_login_page_on": true
+}
