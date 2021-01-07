@@ -1,12 +1,6 @@
 name: 'Terraform'
 
 on:
-  push:
-    branches: [main]
-    paths: ['infrastructure/terraform/**','.github/workflows/terraform.yml']
-  pull_request:
-    branches: [main]
-    paths: ['infrastructure/terraform/**','.github/workflows/terraform.yml']
   workflow_dispatch:
 
 defaults:
