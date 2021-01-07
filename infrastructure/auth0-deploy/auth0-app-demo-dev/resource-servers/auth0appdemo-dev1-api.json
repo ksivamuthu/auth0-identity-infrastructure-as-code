@@ -1,6 +1,6 @@
 {
-  "name": "auth0appdemo-dev1-api",
-  "identifier": "https://auth0appdemo-dev1-api.azurewebsites.net",
+  "name": "auth0appdemo-dev2-api",
+  "identifier": "https://auth0appdemo-dev2-api.azurewebsites.net",
   "allow_offline_access": true,
   "skip_consent_for_verifiable_first_party_clients": true,
   "token_lifetime": 86400,
