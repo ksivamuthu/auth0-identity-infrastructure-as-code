@@ -68,6 +68,7 @@ jobs:
       uses: azure/webapps-deploy@v2
       with:
         app-name: auth0appdemo-dev-app
+        package: ./frontend-app/build
 
   staging:
     name: 'Deploy Staging'
@@ -99,7 +100,7 @@ jobs:
       uses: azure/webapps-deploy@v2
       with:
         app-name: auth0appdemo-staging-app
-
+        package: ./frontend-app/build
   prod:
     name: 'Deploy Prod'
     needs: staging
@@ -130,3 +131,4 @@ jobs:
       uses: azure/webapps-deploy@v2
       with:
         app-name: auth0appdemo-prod-app        
+        package: ./frontend-app/build        
