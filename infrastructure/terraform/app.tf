@@ -15,8 +15,8 @@ resource "azurerm_app_service_plan" "appserviceplan" {
 
   # Choose size
   sku {
-    tier = "Standard"
-    size = "S1"
+    tier = "Basic"
+    size = "B1"
   }
 }
 
