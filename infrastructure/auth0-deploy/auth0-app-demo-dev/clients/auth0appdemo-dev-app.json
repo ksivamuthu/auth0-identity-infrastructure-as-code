@@ -4,7 +4,7 @@
   "description": "auth0appdemo-dev-app - Terraform generated",
   "oidc_conformant": true,
   "callbacks": [
-    "https://auth0appdemo-dev-app.azurewebsites.net"
+    "https://auth0appdemo-dev-app.azurewebsites.net/callback"
   ],
   "allowed_logout_urls": [
     "https://auth0appdemo-dev-app.azurewebsites.net"
