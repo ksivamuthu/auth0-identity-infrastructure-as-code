@@ -1,5 +1,7 @@
 # Auth0 - Identity Infrastructure as Code
 
+[![](https://img.youtube.com/vi/HwsO3Wv7k-Q/0.jpg)](https://www.youtube.com/watch?v=HwsO3Wv7k-Q)
+
 ## What is Infrastructure as Code?
 
 Infrastructure as Code (IaC) is the management of infrastructure in a descriptive model, using the same versioning as DevOps team uses for source code. **Microsoft**
