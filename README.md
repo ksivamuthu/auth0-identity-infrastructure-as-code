@@ -1,6 +1,6 @@
 # Auth0 - Identity Infrastructure as Code
 
-[![](https://img.youtube.com/vi/HwsO3Wv7k-Q/0.jpg)](https://www.youtube.com/watch?v=HwsO3Wv7k-Q)
+[![](https://img.youtube.com/vi/HwsO3Wv7k-Q/maxresdefault.jpg)](https://www.youtube.com/watch?v=HwsO3Wv7k-Q)
 
 ## What is Infrastructure as Code?
 
